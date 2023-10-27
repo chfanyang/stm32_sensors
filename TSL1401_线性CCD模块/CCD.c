@@ -20,9 +20,7 @@ uint16_t Get_Adc(void)
 {
 	
 	HAL_ADC_Start(&hadc1);  //先开启ADC
-	HAL_ADC_PollForConversion(&hadc1,1);//查询函数，查询EOC标志位。每次采样，CUP在这里都要 
-                                       //等待采样完成才能进行下一步，这段时间CUP没有干其他 
-                                       //事，所以降低了CUP使用率
+	HAL_ADC_PollForConversion(&hadc1,1);
  
 	return HAL_ADC_GetValue(&hadc1);    //得到ADC的值
 }
